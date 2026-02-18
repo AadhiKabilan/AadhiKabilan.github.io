@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Freelance Portfolio — Web Development, Video Editing & Software Solutions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="description" content="Professional freelance services: modern websites, video editing, and custom software solutions. Transform your business with expert digital services."/>
+  <style>
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes slideInRight { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+    .fade-in { animation: fadeIn 0.6s ease-out forwards; }
+    .slide-in-left { animation: slideInLeft 0.6s ease-out forwards; }
+    .slide-in-right { animation: slideInRight 0.6s ease-out forwards; }
+    .smooth-transition { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3); }
+    .gradient-text { background: linear-gradient(135deg, #0ea5e9, #a855f7, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 overflow-x-hidden">
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-40 backdrop-blur-lg bg-zinc-950/80 border-b border-zinc-800">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="text-2xl font-bold gradient-text">Portfolio</div>
+      <div class="hidden md:flex gap-8">
+        <a href="#services" class="text-zinc-300 hover:text-sky-400 smooth-transition">Services</a>
+        <a href="#projects" class="text-zinc-300 hover:text-purple-400 smooth-transition">Projects</a>
+        <a href="#process" class="text-zinc-300 hover:text-emerald-400 smooth-transition">Process</a>
+        <a href="#testimonials" class="text-zinc-300 hover:text-rose-400 smooth-transition">Testimonials</a>
+      </div>
+      <a href="mailto:budgetgadgetsai@gmail.com?subject=Freelance%20Project" class="px-4 py-2 bg-sky-500 text-black rounded-lg font-semibold hover:bg-sky-600 smooth-transition">Get in Touch</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-6 pt-20 pb-16">
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div class="slide-in-left">
+        <br>
+        <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-2">
+          Transform Your <span class="gradient-text">Digital Presence</span>
+        </h1>
+        <p class="text-lg text-zinc-400 mt-6">
+          Professional web development, compelling video editing, and custom software solutions. From concept to launch, I deliver results that grow your business.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          <a href="#projects" class="px-6 py-3 bg-sky-500 text-black rounded-lg font-semibold hover:bg-sky-600 smooth-transition text-center">View My Work</a>
+          <a href="mailto:budgetgadgetsai@gmail.com?subject=Freelance%20Project" class="px-6 py-3 border border-sky-500 text-sky-400 rounded-lg font-semibold hover:bg-sky-500/10 smooth-transition text-center">Start a Project</a>
+        </div>
+        <div class="mt-10 flex gap-6 text-sm">
+          <div><div class="text-2xl font-bold text-sky-400">10+</div><div class="text-zinc-400">Projects Completed</div></div>
+          <div><div class="text-2xl font-bold text-purple-400">3+</div><div class="text-zinc-400">Years Combined Experience</div></div>
+          <div><div class="text-2xl font-bold text-emerald-400">100%</div><div class="text-zinc-400">Client Satisfaction</div></div>
+        </div>
+      </div>
+      <div class="slide-in-right relative">
+        <div class="bg-gradient-to-br from-sky-500/20 via-purple-500/20 to-emerald-500/20 rounded-2xl p-8 border border-zinc-800 hover-lift">
+          <ul class="grid grid-cols-2 gap-4 text-sm">
+            <li class="p-4 bg-zinc-900/60 rounded-xl border border-zinc-800 hover:border-sky-500 smooth-transition">🌐 Business Websites</li>
+            <li class="p-4 bg-zinc-900/60 rounded-xl border border-zinc-800 hover:border-purple-500 smooth-transition">🎬 Video Editing</li>
+            <li class="p-4 bg-zinc-900/60 rounded-xl border border-zinc-800 hover:border-emerald-500 smooth-transition">💻 Custom Software</li>
+            <li class="p-4 bg-zinc-900/60 rounded-xl border border-zinc-800 hover:border-rose-500 smooth-transition">📱 Mobile Apps</li>
+            <li class="p-4 bg-zinc-900/60 rounded-xl border border-zinc-800 hover:border-cyan-500 smooth-transition">🎯 Landing Pages</li>
+            <li class="p-4 bg-zinc-900/60 rounded-xl border border-zinc-800 hover:border-amber-500 smooth-transition">🔧 Maintenance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="max-w-6xl mx-auto px-6 py-16">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold mb-4">Services I Offer</h2>
+      <p class="text-zinc-400 max-w-2xl mx-auto">Comprehensive digital solutions tailored to your business needs</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="group p-6 bg-zinc-900 rounded-xl border border-zinc-800 hover-lift hover:border-sky-500">
+        <div class="w-14 h-14 bg-sky-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-sky-500/30 smooth-transition">
+          <i class="fas fa-globe text-2xl text-sky-400"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">Website Development</h3>
+        <p class="text-zinc-400 text-sm mb-4">Fast, mobile-first, SEO-optimized websites for businesses, clinics, and enterprises. WhatsApp integration, lead capture forms, and modern design.</p>
+        <ul class="text-xs text-zinc-500 space-y-1">
+          <li>✓ Responsive Design</li>
+          <li>✓ SEO Optimization</li>
+          <li>✓ Fast Performance</li>
+        </ul>
+      </div>
+
+      <div class="group p-6 bg-zinc-900 rounded-xl border border-zinc-800 hover-lift hover:border-purple-500">
+        <div class="w-14 h-14 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-500/30 smooth-transition">
+          <i class="fas fa-film text-2xl text-purple-400"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">Video Editing & Content</h3>
+        <p class="text-zinc-400 text-sm mb-4">Professional video editing for Instagram Reels, YouTube Shorts, promotional ads, and product videos with captions, effects, and brand overlays.</p>
+        <ul class="text-xs text-zinc-500 space-y-1">
+          <li>✓ Short-Form Content</li>
+          <li>✓ Professional Editing</li>
+          <li>✓ Sound Design</li>
+        </ul>
+      </div>
+
+      <div class="group p-6 bg-zinc-900 rounded-xl border border-zinc-800 hover-lift hover:border-emerald-500">
+        <div class="w-14 h-14 bg-emerald-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-emerald-500/30 smooth-transition">
+          <i class="fas fa-code text-2xl text-emerald-400"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">Custom Software Solutions</h3>
+        <p class="text-zinc-400 text-sm mb-4">Patient management systems, billing software, inventory management, and custom business applications with secure data handling and role-based access.</p>
+        <ul class="text-xs text-zinc-500 space-y-1">
+          <li>✓ Custom Development</li>
+          <li>✓ Secure & Scalable</li>
+          <li>✓ User-Friendly UI</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="max-w-6xl mx-auto px-6 py-16">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold mb-4">Recent Projects</h2>
+      <p class="text-zinc-400 max-w-2xl mx-auto">Quality work that speaks for itself</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- Card 1 -->
+      <button onclick="openModal('annai')" class="group text-left p-0 bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-sky-500 smooth-transition hover-lift">
+        <div class="aspect-video bg-gradient-to-br from-sky-500/20 to-blue-600/20 rounded-t-xl mb-0 flex items-center justify-center overflow-hidden relative">
+          <div class="text-6xl opacity-30"><i class="fas fa-globe"></i></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent"></div>
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-lg">Annai Care Industries</h3>
+          <p class="text-zinc-400 text-sm mt-1">Medical Equipment Distributor Website</p>
+          <div class="mt-3 flex gap-2">
+            <span class="px-2 py-1 bg-sky-500/20 text-sky-300 text-xs rounded">Website</span>
+            <span class="px-2 py-1 bg-sky-500/20 text-sky-300 text-xs rounded">B2B</span>
+          </div>
+        </div>
+      </button>
+
+      <!-- Card 2 -->
+      <button onclick="openModal('starweb')" class="group text-left p-0 bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-purple-500 smooth-transition hover-lift">
+        <div class="aspect-video bg-gradient-to-br from-purple-500/20 to-pink-600/20 rounded-t-xl mb-0 flex items-center justify-center overflow-hidden relative">
+          <div class="text-6xl opacity-30"><i class="fas fa-hospital"></i></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent"></div>
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-lg">Star Scans & Labs</h3>
+          <p class="text-zinc-400 text-sm mt-1">Diagnostic Clinic Website</p>
+          <div class="mt-3 flex gap-2">
+            <span class="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded">Website</span>
+            <span class="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded">Healthcare</span>
+          </div>
+        </div>
+      </button>
+
+      <!-- Card 3 -->
+      <button onclick="openModal('billing')" class="group text-left p-0 bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-emerald-500 smooth-transition hover-lift">
+        <div class="aspect-video bg-gradient-to-br from-emerald-500/20 to-green-600/20 rounded-t-xl mb-0 flex items-center justify-center overflow-hidden relative">
+          <div class="text-6xl opacity-30"><i class="fas fa-chart-bar"></i></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent"></div>
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-lg">Billing & Patient Management</h3>
+          <p class="text-zinc-400 text-sm mt-1">Healthcare Management Software</p>
+          <div class="mt-3 flex gap-2">
+            <span class="px-2 py-1 bg-emerald-500/20 text-emerald-300 text-xs rounded">Software</span>
+            <span class="px-2 py-1 bg-emerald-500/20 text-emerald-300 text-xs rounded">Desktop/Web</span>
+          </div>
+        </div>
+      </button>
+
+      <!-- Card 4 -->
+      <button onclick="openModal('video')" class="group text-left p-0 bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-rose-500 smooth-transition hover-lift">
+        <div class="aspect-video bg-gradient-to-br from-rose-500/20 to-orange-600/20 rounded-t-xl mb-0 flex items-center justify-center overflow-hidden relative">
+          <div class="text-6xl opacity-30"><i class="fas fa-play"></i></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent"></div>
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-lg">Video Editing & Ads</h3>
+          <p class="text-zinc-400 text-sm mt-1">Short-Form Content Creation</p>
+          <div class="mt-3 flex gap-2">
+            <span class="px-2 py-1 bg-rose-500/20 text-rose-300 text-xs rounded">Video</span>
+            <span class="px-2 py-1 bg-rose-500/20 text-rose-300 text-xs rounded">Reels/Shorts</span>
+          </div>
+        </div>
+      </button>
+
+      <!-- Card 5 -->
+      <button onclick="openModal('eflora')" class="group text-left p-0 bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-cyan-500 smooth-transition hover-lift">
+        <div class="aspect-video bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-t-xl mb-0 flex items-center justify-center overflow-hidden relative">
+          <div class="text-6xl opacity-30"><i class="fas fa-leaf"></i></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent"></div>
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-lg">eFlora KKL</h3>
+          <p class="text-zinc-400 text-sm mt-1">Plant Database Mobile App</p>
+          <div class="mt-3 flex gap-2">
+            <span class="px-2 py-1 bg-cyan-500/20 text-cyan-300 text-xs rounded">Mobile App</span>
+            <span class="px-2 py-1 bg-cyan-500/20 text-cyan-300 text-xs rounded">Flutter</span>
+          </div>
+        </div>
+      </button>
+
+    </div>
+  </section>
+
+
+  <!-- Process -->
+  <section id="process" class="max-w-6xl mx-auto px-6 py-16">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold mb-4">My Process</h2>
+      <p class="text-zinc-400 max-w-2xl mx-auto">Proven steps to deliver exceptional results</p>
+    </div>
+    <div class="grid md:grid-cols-4 gap-4">
+      <div class="relative">
+        <div class="p-6 bg-zinc-900 rounded-xl border border-zinc-800">
+          <div class="w-12 h-12 bg-sky-500 rounded-full flex items-center justify-center text-white font-bold text-lg mb-4">1</div>
+          <h3 class="font-semibold mb-2">Discovery & Planning</h3>
+          <p class="text-zinc-400 text-sm">Understand your goals, target audience, budget, and project timeline to create a solid foundation.</p>
+        </div>
+        <div class="hidden md:block absolute top-1/2 -right-2 w-4 h-0.5 bg-gradient-to-r from-sky-500 to-transparent"></div>
+      </div>
+
+      <div class="relative">
+        <div class="p-6 bg-zinc-900 rounded-xl border border-zinc-800">
+          <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg mb-4">2</div>
+          <h3 class="font-semibold mb-2">Design & Strategy</h3>
+          <p class="text-zinc-400 text-sm">Create mockups, wireframes, and design strategies that align with your vision and user experience goals.</p>
+        </div>
+        <div class="hidden md:block absolute top-1/2 -right-2 w-4 h-0.5 bg-gradient-to-r from-purple-500 to-transparent"></div>
+      </div>
+
+      <div class="relative">
+        <div class="p-6 bg-zinc-900 rounded-xl border border-zinc-800">
+          <div class="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold text-lg mb-4">3</div>
+          <h3 class="font-semibold mb-2">Development & Creation</h3>
+          <p class="text-zinc-400 text-sm">Code, build, edit, and create with attention to performance, security, and quality standards.</p>
+        </div>
+        <div class="hidden md:block absolute top-1/2 -right-2 w-4 h-0.5 bg-gradient-to-r from-emerald-500 to-transparent"></div>
+      </div>
+
+      <div>
+        <div class="p-6 bg-zinc-900 rounded-xl border border-zinc-800">
+          <div class="w-12 h-12 bg-rose-500 rounded-full flex items-center justify-center text-white font-bold text-lg mb-4">4</div>
+          <h3 class="font-semibold mb-2">Launch & Support</h3>
+          <p class="text-zinc-400 text-sm">Deploy your project, optimize performance, and provide ongoing maintenance and support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="max-w-6xl mx-auto px-6 py-16">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold mb-4">Client Testimonials</h2>
+      <p class="text-zinc-400 max-w-2xl mx-auto">What my clients have to say</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="p-6 bg-zinc-900 rounded-xl border border-zinc-800">
+        <div class="flex gap-1 mb-3">
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+        </div>
+        <p class="text-zinc-300 mb-4">"Excellent work! The website looks professional and helped us acquire 30% more clients within the first month. Highly recommend!"</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-sky-500 rounded-full"></div>
+          <div>
+            <p class="font-semibold text-sm">Annai Care Industries</p>
+            <p class="text-zinc-500 text-xs">Medical Equipment Distributor</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 bg-zinc-900 rounded-xl border border-zinc-800">
+        <div class="flex gap-1 mb-3">
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+        </div>
+        <p class="text-zinc-300 mb-4">"The management software transformed how we handle billing and patient records. Support has been responsive and helpful."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-purple-500 rounded-full"></div>
+          <div>
+            <p class="font-semibold text-sm">Star Scans & Labs</p>
+            <p class="text-zinc-500 text-xs">Diagnostic Clinic</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 bg-zinc-900 rounded-xl border border-zinc-800">
+        <div class="flex gap-1 mb-3">
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+        </div>
+        <p class="text-zinc-300 mb-4">"Professional video editing with fast turnaround. Our Instagram engagement doubled after using the edited content. Amazing quality!"</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-emerald-500 rounded-full"></div>
+          <div>
+            <p class="font-semibold text-sm">Social Commerce Business</p>
+            <p class="text-zinc-500 text-xs">E-commerce Brand</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4 z-50">
+    <div class="max-w-5xl w-full bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800">
+      <div class="flex items-center justify-between p-6 border-b border-zinc-800">
+        <h3 id="modalTitle" class="font-semibold text-lg"></h3>
+        <button onclick="closeModal()" class="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-lg font-semibold smooth-transition">✕ Close</button>
+      </div>
+      <div class="p-6 grid md:grid-cols-2 gap-6 max-h-[77vh] overflow-y-auto">
+        <!-- Images/Videos Container -->
+        <div class="flex flex-col">
+          <!-- Video Container (if video exists) -->
+          <div id="videoContainer" class="hidden mb-4">
+            <iframe id="videoFrame" width="100%" height="300" class="rounded-lg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          
+          <!-- Main Image Display with Zoom -->
+          <div id="mainImageContainer" class="relative mb-4 cursor-zoom-in flex-shrink-0" onclick="zoomImage()">
+            <img id="mainImage" src="" class="w-full h-64 rounded-lg bg-zinc-800 object-cover" alt="">
+            <div class="absolute top-2 right-2 bg-black/60 px-2 py-1 rounded text-xs text-white">
+              <i class="fas fa-magnifying-glass-plus"></i> Click to Zoom
+            </div>
+          </div>
+
+          <!-- Image Thumbnails Grid -->
+          <div id="modalImages" class="grid grid-cols-2 gap-3 flex-shrink-0">
+            <!-- thumbnails injected -->
+          </div>
+        </div>
+
+        <!-- Content Section -->
+        <div class="flex flex-col h-full">
+          <div class="flex-1 overflow-y-auto">
+            <p id="modalDesc" class="text-zinc-300 text-sm mb-4"></p>
+            <ul id="modalBullets" class="text-sm text-zinc-300 space-y-2 list-disc pl-5 mb-6"></ul>
+          </div>
+          
+          <div class="flex gap-3">
+            <a id="modalLink" target="_blank" class="flex-1 px-4 py-3 bg-sky-500 text-black rounded-lg font-semibold hover:bg-sky-600 smooth-transition text-center">
+              <i class="fas fa-external-link-alt"></i> Visit / Demo
+            </a>
+            <button onclick="downloadImages()" class="px-4 py-3 border border-zinc-700 rounded-lg font-semibold hover:border-zinc-500 smooth-transition">
+              <i class="fas fa-download"></i>
+            </button>
+          </div>
+
+          <!-- Tech Stack -->
+          <div id="techStack" class="mt-6 pt-6 border-t border-zinc-800">
+            <p class="text-xs font-semibold text-zinc-500 mb-3">TECH STACK</p>
+            <div id="techBadges" class="flex flex-wrap gap-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Zoom Modal -->
+  <div id="zoomModal" class="fixed inset-0 hidden items-center justify-center bg-black/95 backdrop-blur-sm p-4 z-50">
+    <div class="relative w-full h-full max-w-4xl max-h-[90vh]">
+      <button onclick="closeZoom()" class="absolute top-4 right-4 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white z-10 smooth-transition">
+        ✕
+      </button>
+      <button onclick="prevImage()" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white z-10 smooth-transition">
+        ‹
+      </button>
+      <button onclick="nextImage()" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white z-10 smooth-transition">
+        ›
+      </button>
+      <img id="zoomImage" src="" class="w-full h-full object-contain rounded-lg" alt="">
+      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 px-3 py-1 rounded text-white text-sm">
+        <span id="imageCounter"></span>
+      </div>
+    </div>
+  </div>
+
+  <footer class="border-t border-zinc-800 mt-16 pt-12">
+    <div class="max-w-6xl mx-auto px-6 py-10">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <div class="text-2xl font-bold gradient-text mb-2">Portfolio</div>
+          <p class="text-zinc-400 text-sm">Transforming ideas into digital reality.</p>
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-zinc-300 mb-3">Quick Links</p>
+          <ul class="text-sm text-zinc-400 space-y-2">
+            <li><a href="#services" class="hover:text-sky-400 smooth-transition">Services</a></li>
+            <li><a href="#projects" class="hover:text-sky-400 smooth-transition">Projects</a></li>
+            <li><a href="#process" class="hover:text-sky-400 smooth-transition">Process</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-zinc-300 mb-3">Get in Touch</p>
+          <p class="text-sm text-zinc-400 mb-3">Let's discuss your next project</p>
+          <a href="mailto:budgetgadgetsai@gmail.com" class="inline-block px-4 py-2 bg-sky-500 text-black rounded-lg font-semibold hover:bg-sky-600 smooth-transition">Contact Me</a>
+        </div>
+      </div>
+      <div class="border-t border-zinc-800 pt-6 text-center text-zinc-500 text-sm">
+        © <span id="year"></span> Freelance Portfolio. All rights reserved. | Crafted with passion
+      </div>
+    </div>
+  </footer>
+
+<script>
+  let currentZoomIndex = 0;
+  let currentZoomImages = [];
+  let currentModalKey = null;
+
+  const data = {
+    annai: {
+      title: "Annai Care Industries — Website",
+      desc: "Responsive business website built for a medical equipment distributor. Focus on trust, services, and lead capture. Increased client inquiries by 40% with optimized design and clear CTAs.",
+      bullets: [
+        "Mobile-first responsive design",
+        "SEO-optimized pages",
+        "Lightning-fast load times",
+        "WhatsApp integration",
+        "Lead capture forms",
+        "Product showcase"
+      ],
+      images: ["img/annai-1.png", "img/annai-2.png", "img/annai-3.png", "img/annai-4.png"],
+      link: "https://annaicareindustries.com",
+      tech: ["HTML5", "CSS3", "JavaScript", "Tailwind", "SEO"]
+    },
+    starweb: {
+      title: "Star Scans & Labs — Website",
+      desc: "Modern clinic website showcasing diagnostic services with patient-friendly UX. Integrated appointment booking and service information pages.",
+      bullets: [
+        "Service showcase pages",
+        "Clear appointment CTAs",
+        "Local SEO optimization",
+        "Mobile-responsive design",
+        "Doctor profiles",
+        "Test packages display"
+      ],
+      images: ["img/star-1.png", "img/star-2.png", "img/star-3.png", "img/star-4.png"],
+      link: "https://starscansandlabs.com",
+      tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "SEO"]
+    },
+    billing: {
+      title: "Billing & Patient Management Software",
+      desc: "Comprehensive desktop and web application for healthcare clinics. Streamlines billing, patient records, and report generation with secure data handling.",
+      bullets: [
+        "Patient record management",
+        "Invoice & bill generation",
+        "Advanced reporting",
+        "Role-based access control",
+        "Data backup & security",
+        "Multi-user support"
+      ],
+      images: ["img/billing-1.jpg", "img/billing-2.jpg", "img/billing-3.jpg", "img/billing-4.jpg"],
+      link: "#",
+      tech: ["React/Vue", "Node.js", "PostgreSQL", "REST API", "Authentication"]
+    },
+    video: {
+      title: "Video Editing — Reels & Ads",
+      desc: "Professional short-form video content for social media. Expertly crafted Instagram Reels and YouTube Shorts with compelling hooks, captions, and brand consistency.",
+      bullets: [
+        "Captions & subtitles",
+        "Engaging hooks & intros",
+        "Branding overlays",
+        "Color grading",
+        "Sound design",
+        "Multi-language support"
+      ],
+      images: ["img/video-1.jpg", "img/video-2.jpg", "img/video-3.jpg", "img/video-4.jpg"],
+      videoId: "Y8fzyvt9Jpo", // Example YouTube video ID
+      link: "https://youtube.com/@budgetgadgets",
+      tech: ["Adobe Premiere", "After Effects", "DaVinci Resolve", "Motion Graphics"]
+    },
+    eflora: {
+      title: "eFlora KKL — Mobile App",
+      desc: "Flutter-based mobile application featuring a comprehensive plant database. Users can search, filter, and learn about various plant species with detailed information.",
+      bullets: [
+        "Flutter UI framework",
+        "Searchable database",
+        "Advanced filtering",
+        "Plant information details",
+        "Favorites management",
+        "iOS & Android support"
+      ],
+      images: ["img/eflora-1.jpeg", "img/eflora-2.jpeg", "img/eflora-3.jpeg", "img/eflora-4.jpeg"],
+      link: "#",
+      tech: ["Flutter", "Dart", "Firebase", "REST API", "Local Storage"]
+    }
+  };
+
+  function openModal(key) {
+    currentModalKey = key;
+    const m = data[key];
+    
+    // Set title and description
+    document.getElementById('modalTitle').textContent = m.title;
+    document.getElementById('modalDesc').textContent = m.desc;
+    
+    // Set bullets
+    const ul = document.getElementById('modalBullets');
+    ul.innerHTML = m.bullets.map(b => `<li>${b}</li>`).join('');
+    
+    // Handle video display if present
+    const videoContainer = document.getElementById('videoContainer');
+    const mainImageContainer = document.getElementById('mainImageContainer');
+    
+    if (m.videoId) {
+      videoContainer.classList.remove('hidden');
+      const videoFrame = document.getElementById('videoFrame');
+      videoFrame.src = `https://www.youtube.com/embed/${m.videoId}`;
+      mainImageContainer.classList.add('hidden');
+    } else {
+      videoContainer.classList.add('hidden');
+      mainImageContainer.classList.remove('hidden');
+    }
+    
+    // Set images
+    currentZoomImages = m.images;
+    if (m.images.length > 0) {
+      document.getElementById('mainImage').src = m.images[0];
+    }
+    
+    const imgs = document.getElementById('modalImages');
+    imgs.innerHTML = m.images.map((src, idx) => `
+      <img src="${src}" onclick="selectImage(${idx})" class="w-full h-32 object-cover rounded-lg bg-zinc-800 cursor-pointer hover:opacity-80 smooth-transition" alt="">
+    `).join('');
+    
+    // Set link
+    const link = document.getElementById('modalLink');
+    link.href = m.link;
+    if (m.link === "#") {
+      link.classList.add('opacity-50', 'cursor-not-allowed');
+    } else {
+      link.classList.remove('opacity-50', 'cursor-not-allowed');
+    }
+    
+    // Set tech stack
+    const techBadges = document.getElementById('techBadges');
+    techBadges.innerHTML = (m.tech || []).map(tech => 
+      `<span class="px-2 py-1 bg-sky-500/20 text-sky-300 text-xs rounded">${tech}</span>`
+    ).join('');
+    
+    // Show modal
+    document.getElementById('modal').classList.remove('hidden');
+    document.getElementById('modal').classList.add('flex');
+  }
+
+  function selectImage(idx) {
+    document.getElementById('mainImage').src = currentZoomImages[idx];
+    currentZoomIndex = idx;
+  }
+
+  function zoomImage() {
+    if (currentZoomImages.length === 0) return;
+    currentZoomIndex = 0;
+    document.getElementById('zoomImage').src = currentZoomImages[0];
+    updateImageCounter();
+    document.getElementById('zoomModal').classList.remove('hidden');
+    document.getElementById('zoomModal').classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeZoom() {
+    document.getElementById('zoomModal').classList.add('hidden');
+    document.getElementById('zoomModal').classList.remove('flex');
+    document.body.style.overflow = 'auto';
+  }
+
+  function nextImage() {
+    currentZoomIndex = (currentZoomIndex + 1) % currentZoomImages.length;
+    document.getElementById('zoomImage').src = currentZoomImages[currentZoomIndex];
+    updateImageCounter();
+  }
+
+  function prevImage() {
+    currentZoomIndex = (currentZoomIndex - 1 + currentZoomImages.length) % currentZoomImages.length;
+    document.getElementById('zoomImage').src = currentZoomImages[currentZoomIndex];
+    updateImageCounter();
+  }
+
+  function updateImageCounter() {
+    document.getElementById('imageCounter').textContent = `${currentZoomIndex + 1} / ${currentZoomImages.length}`;
+  }
+
+  function closeModal() {
+    document.getElementById('modal').classList.add('hidden');
+    document.getElementById('modal').classList.remove('flex');
+  }
+
+  function downloadImages() {
+    if (currentModalKey && data[currentModalKey]) {
+      const m = data[currentModalKey];
+      m.images.forEach((img, idx) => {
+        const link = document.createElement('a');
+        link.href = img;
+        link.download = `${currentModalKey}-${idx + 1}`;
+        link.click();
+      });
+    }
+  }
+
+  // Keyboard navigation for zoom modal
+  document.addEventListener('keydown', (e) => {
+    if (document.getElementById('zoomModal').classList.contains('hidden')) return;
+    if (e.key === 'ArrowRight') nextImage();
+    if (e.key === 'ArrowLeft') prevImage();
+    if (e.key === 'Escape') closeZoom();
+  });
+
+  // Close modals on backdrop click
+  document.getElementById('modal').addEventListener('click', (e) => {
+    if (e.target === document.getElementById('modal')) closeModal();
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
