@@ -17,6 +17,13 @@
     .smooth-transition { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
     .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3); }
     .gradient-text { background: linear-gradient(135deg, #0ea5e9, #a855f7, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    
+    /* Mobile zoom modal fix */
+    #zoomModal { touch-action: none; }
+    #zoomModal.flex { position: fixed; display: flex !important; }
+    .zoom-modal-container { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
+    .zoom-modal-inner { position: relative; width: 100%; height: 100%; max-width: 1024px; max-height: 90vh; display: flex; align-items: center; justify-content: center; }
+    #zoomImage { width: 100%; height: 100%; object-fit: contain; }
   </style>
 </head>
 <body class="bg-zinc-950 text-zinc-100 overflow-x-hidden">
@@ -30,7 +37,7 @@
         <a href="#process" class="text-zinc-300 hover:text-emerald-400 smooth-transition">Process</a>
         <a href="#testimonials" class="text-zinc-300 hover:text-rose-400 smooth-transition">Testimonials</a>
       </div>
-      <a href="mailto:budgetgadgetsai@gmail.com?subject=Freelance%20Project" class="px-4 py-2 bg-sky-500 text-black rounded-lg font-semibold hover:bg-sky-600 smooth-transition">Get in Touch</a>
+      <a href="mailto:aadhikabilan2026@gmail.com?subject=Freelance%20Project" class="px-4 py-2 bg-sky-500 text-black rounded-lg font-semibold hover:bg-sky-600 smooth-transition">Get in Touch</a>
     </div>
   </nav>
 
@@ -47,7 +54,7 @@
         </p>
         <div class="mt-8 flex flex-col sm:flex-row gap-4">
           <a href="#projects" class="px-6 py-3 bg-sky-500 text-black rounded-lg font-semibold hover:bg-sky-600 smooth-transition text-center">View My Work</a>
-          <a href="mailto:budgetgadgetsai@gmail.com?subject=Freelance%20Project" class="px-6 py-3 border border-sky-500 text-sky-400 rounded-lg font-semibold hover:bg-sky-500/10 smooth-transition text-center">Start a Project</a>
+          <a href="mailto:aadhikabilan2026@gmail.com?subject=Freelance%20Project" class="px-6 py-3 border border-sky-500 text-sky-400 rounded-lg font-semibold hover:bg-sky-500/10 smooth-transition text-center">Start a Project</a>
         </div>
         <div class="mt-10 flex gap-6 text-sm">
           <div><div class="text-2xl font-bold text-sky-400">10+</div><div class="text-zinc-400">Projects Completed</div></div>
@@ -317,6 +324,32 @@
     </div>
   </section>
 
+  <form action="https://formspree.io/f/xqedlnob" method="POST" class="max-w-xl mx-auto bg-zinc-900 p-6 rounded-xl">
+  <h3 class="text-xl font-semibold mb-4">Send me a message</h3>
+
+  <div class="mb-3">
+    <label class="block text-sm mb-1">Name</label>
+    <input type="text" name="name" required
+      class="w-full p-2 rounded bg-zinc-800 border border-zinc-700 focus:outline-none">
+  </div>
+
+  <div class="mb-3">
+    <label class="block text-sm mb-1">Email</label>
+    <input type="email" name="email" required
+      class="w-full p-2 rounded bg-zinc-800 border border-zinc-700 focus:outline-none">
+  </div>
+
+  <div class="mb-3">
+    <label class="block text-sm mb-1">Message</label>
+    <textarea name="message" rows="4" required
+      class="w-full p-2 rounded bg-zinc-800 border border-zinc-700 focus:outline-none"></textarea>
+  </div>
+
+  <button type="submit"
+    class="mt-2 px-4 py-2 bg-sky-500 text-black rounded-lg font-semibold">
+    Send Message
+  </button>
+</form>
 
   <!-- Modal -->
   <div id="modal" class="fixed inset-0 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4 z-50">
@@ -374,18 +407,18 @@
   </div>
 
   <!-- Image Zoom Modal -->
-  <div id="zoomModal" class="fixed inset-0 hidden items-center justify-center bg-black/95 backdrop-blur-sm p-4 z-50">
-    <div class="relative w-full h-full max-w-4xl max-h-[90vh]">
+  <div id="zoomModal" class="fixed inset-0 hidden bg-black/95 backdrop-blur-sm p-4 z-50 zoom-modal-container">
+    <div class="zoom-modal-inner">
       <button onclick="closeZoom()" class="absolute top-4 right-4 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white z-10 smooth-transition">
         ✕
       </button>
-      <button onclick="prevImage()" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white z-10 smooth-transition">
+      <button onclick="prevImage()" class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white z-10 smooth-transition">
         ‹
       </button>
-      <button onclick="nextImage()" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white z-10 smooth-transition">
+      <button onclick="nextImage()" class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white z-10 smooth-transition">
         ›
       </button>
-      <img id="zoomImage" src="" class="w-full h-full object-contain rounded-lg" alt="">
+      <img id="zoomImage" src="" class="rounded-lg" alt="">
       <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 px-3 py-1 rounded text-white text-sm">
         <span id="imageCounter"></span>
       </div>
@@ -410,7 +443,7 @@
         <div>
           <p class="text-sm font-semibold text-zinc-300 mb-3">Get in Touch</p>
           <p class="text-sm text-zinc-400 mb-3">Let's discuss your next project</p>
-          <a href="mailto:budgetgadgetsai@gmail.com" class="inline-block px-4 py-2 bg-sky-500 text-black rounded-lg font-semibold hover:bg-sky-600 smooth-transition">Contact Me</a>
+          <a href="mailto:aadhikabilan2026@gmail.com" class="inline-block px-4 py-2 bg-sky-500 text-black rounded-lg font-semibold hover:bg-sky-600 smooth-transition">Contact Me</a>
         </div>
       </div>
       <div class="border-t border-zinc-800 pt-6 text-center text-zinc-500 text-sm">
@@ -483,7 +516,7 @@
       ],
       images: ["img/video-1.jpg", "img/video-2.jpg", "img/video-3.jpg", "img/video-4.jpg"],
       videoId: "Y8fzyvt9Jpo", // Example YouTube video ID
-      link: "https://youtube.com/@budgetgadgets",
+      link: "https://www.youtube.com/@AadhiKabilan",
       tech: ["Adobe Premiere", "After Effects", "DaVinci Resolve", "Motion Graphics"]
     },
     eflora: {
@@ -570,15 +603,23 @@
     currentZoomIndex = 0;
     document.getElementById('zoomImage').src = currentZoomImages[0];
     updateImageCounter();
-    document.getElementById('zoomModal').classList.remove('hidden');
-    document.getElementById('zoomModal').classList.add('flex');
+    const zoomModal = document.getElementById('zoomModal');
+    zoomModal.classList.remove('hidden');
+    zoomModal.classList.add('flex');
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
   }
 
   function closeZoom() {
-    document.getElementById('zoomModal').classList.add('hidden');
-    document.getElementById('zoomModal').classList.remove('flex');
+    const zoomModal = document.getElementById('zoomModal');
+    zoomModal.classList.add('hidden');
+    zoomModal.classList.remove('flex');
     document.body.style.overflow = 'auto';
+    document.documentElement.style.overflow = 'auto';
+    document.body.style.position = '';
+    document.body.style.width = '';
   }
 
   function nextImage() {
