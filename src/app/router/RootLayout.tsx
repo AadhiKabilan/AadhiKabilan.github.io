@@ -1,8 +1,16 @@
-import { Outlet } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Outlet, useLocation } from 'react-router-dom'
 import { Header } from '../../components/layout/Header'
 import { Footer } from '../../components/layout/Footer'
 
 export default function RootLayout() {
+  const { pathname } = useLocation()
+
+  // Scroll to top on every page navigation / route change
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }, [pathname])
+
   return (
     <>
       <a href="#main-content" className="skip-link">

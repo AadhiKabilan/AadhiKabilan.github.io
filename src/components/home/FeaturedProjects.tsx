@@ -1,5 +1,6 @@
 
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "../../components/ui/Button";
 import { ScrollReveal } from "../../components/ui/ScrollReveal";
 import { featuredProjects } from "../../data/projects";
@@ -31,10 +32,10 @@ export function FeaturedProjects() {
         <div className="text-center mt-12">
           <ScrollReveal delay={500}>
             <Button size="lg" variant="ghost" asChild>
-              <a href="/projects">
+              <Link to="/projects">
                 View All Projects
                 <ArrowRight className="h-4 w-4 ml-2" />
-              </a>
+              </Link>
             </Button>
           </ScrollReveal>
         </div>

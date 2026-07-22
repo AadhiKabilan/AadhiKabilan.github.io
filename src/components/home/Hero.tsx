@@ -1,4 +1,5 @@
 import { ArrowRight, Zap, Shield, Smartphone, Cpu, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "../../components/ui/Button";
 import { ScrollReveal } from "../../components/ui/ScrollReveal";
 import { useEffect } from "react";
@@ -73,16 +74,16 @@ export function Hero() {
             <ScrollReveal className="mb-10" delay={300}>
               <div className="flex flex-wrap items-center gap-4">
                 <Button size="lg" asChild>
-                  <a href="/projects" className="flex items-center gap-2">
+                  <Link to="/projects" className="flex items-center gap-2">
                     View Projects
                     <ArrowRight className="h-4 w-4" />
-                  </a>
+                  </Link>
                 </Button>
                 <Button size="lg" variant="glass" asChild>
-                  <a href="/contact" className="flex items-center gap-2">
+                  <Link to="/contact" className="flex items-center gap-2">
                     Get In Touch
                     <Mail className="h-4 w-4" />
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </ScrollReveal>

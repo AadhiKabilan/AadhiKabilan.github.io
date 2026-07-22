@@ -1,4 +1,5 @@
 import { ArrowRight, Mail } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { GlassCard } from '../../components/ui/GlassCard'
 import { Button } from '../../components/ui/Button'
 import { ScrollReveal } from '../../components/ui/ScrollReveal'
@@ -23,10 +24,10 @@ export function CTASection() {
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button size="lg" asChild className="group">
-                  <a href="/contact" className="flex items-center gap-2">
+                  <Link to="/contact" className="flex items-center gap-2">
                     Start a Project
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                  </a>
+                  </Link>
                 </Button>
                 <Button size="lg" variant="glass" asChild>
                   <a href="mailto:jaadhikabilan@gmail.com" className="flex items-center gap-2">

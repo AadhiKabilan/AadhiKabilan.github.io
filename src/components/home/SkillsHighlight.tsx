@@ -1,4 +1,5 @@
 import { Code, Globe, Brain, Wrench, Database, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { getSkillsByCategory, categoryLabels, categoryImages } from "../../data/skills";
 import { GlassCard } from "../../components/ui/GlassCard";
 import { ScrollReveal } from "../../components/ui/ScrollReveal";
@@ -85,13 +86,13 @@ export function SkillsHighlight() {
 
         <ScrollReveal delay={600} className="mt-12">
           <div className="text-center">
-            <a
-              href="/skills"
+            <Link
+              to="/skills"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] transition-all shadow-md hover:shadow-lg"
             >
               View Full Skill Directory
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </a>
+            </Link>
           </div>
         </ScrollReveal>
       </div>
