@@ -4,7 +4,6 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ToastProvider } from './components/ui/Toast'
 import { ThemeProvider } from './app/providers/ThemeProvider'
 import { LenisProvider } from './app/providers/LenisProvider'
-import { ScrollReveal } from './components/ui/ScrollReveal'
 import App from './App'
 import './styles/globals.css'
 
@@ -24,9 +23,7 @@ createRoot(document.getElementById('root')!).render(
       <ThemeProvider>
         <ToastProvider>
           <LenisProvider>
-           <ScrollReveal>
-              <App />
-            </ScrollReveal>
+            <App />
           </LenisProvider>
         </ToastProvider>
       </ThemeProvider>

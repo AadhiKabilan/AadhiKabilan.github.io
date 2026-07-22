@@ -39,7 +39,7 @@ export const ScrollReveal = forwardRef<HTMLDivElement, ScrollRevealProps>(
 
     const isInView = useInView(localRef, {
       once,
-      margin: '-100px',
+      margin: '0px',
     })
 
     const directions = {
