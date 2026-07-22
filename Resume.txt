@@ -1,0 +1,28 @@
+AADHI KABILAN J
+Software Developer
++91 7604940996 | jaadhikabilan@gmail.com | github.com/AadhiKabilan | Puducherry, India
+SUMMARY
+B.Tech graduate in Information Technology (CGPA: 9.08/10) with strong foundations in software engineering, data structures, and problem-solving. Experienced in developing full-stack web applications, AI/ML-based security solutions, mobile applications, and IoT projects. Eager to apply technical skills in software development, machine learning, and intelligent automation to build scalable, real-world applications and contribute effectively in a dynamic engineering team.
+--------------------------------------------------------------------------------
+TECHNICAL SKILLS
+Programming Languages: C++, Python, Java
+Web Development: Tailwind CSS, PHP, JavaScript, React.js, FastAPI, REST APIs
+AI/ML: Machine Learning Basics, Data Preprocessing, Feature Engineering, Classification, Ensemble Methods, Model Evaluation, Anomaly Detection, Behavioral Analysis, Python for AI/ML
+Libraries/Tools: NumPy, Pandas, scikit-learn, Tkinter, Flask/FastAPI 
+Databases: MySQL, Oracle
+
+SELECTED PROJECTS
+:: PolyShield Pro  -  AI-powered malware detection system that uses behavioral features, ensemble classifiers, real-time process monitoring, and automated threat termination. Focused on anomaly detection, feature-based classification, and defensive cybersecurity automation.
+:: SEO Optimizer Pro  -  AI-powered SEO platform using offline and online LLMs to analyze websites, generate SEO scores, detect issues, and automatically fix live website code with AI-generated SEO optimizations.
+:: IoT Student Verification System  -  RFID-based student verification system with database validation, student detail display, and entry/exit logging. Designed for secure access control and real-time identity verification.
+:: EfloraKkl Mobile App  -  Flutter-based mobile application for searchable plant data with filters for family, genus, and habitat. Integrated REST APIs and MySQL for dynamic data retrieval and management.
+INTERNSHIPS
+:: Web Development Intern, Annai Care Industries
+Developed a responsive Tailwind CSS + PHP + MySQL website with product database management, CRUD features, and deployment support.
+Website: https://www.annaicareindustries.com/
+:: Web Development & Product Intern, Star Scans & Labs
+Developed a Tailwind CSS + PHP website, Python Tkinter billing software, and patient data management software for operational automation and record handling.
+Website: https://www.starscansandlabs.com/ 
+EDUCATION
+B. Tech, Information Technology - Puducherry Technological University | 2022-2026 | CGPA: 9.08/10
+HSC: 83.33%  |  SSLC: 82.8%
