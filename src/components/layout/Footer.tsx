@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom'
-import { Github, Linkedin, Mail, Twitter, Heart } from 'lucide-react'
+import { Github, Linkedin, Mail, Twitter, Heart, Eye } from 'lucide-react'
 import { siteConfig } from '../../data/site'
+import { useVisitorCount } from '../../hooks/useVisitorCount'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
+  const { count: visitorCount } = useVisitorCount()
 
   return (
     <footer className="bg-[var(--color-bg-subtle)] border-t border-[var(--color-border)]" role="contentinfo">
@@ -76,7 +78,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-[var(--color-fg)] mb-4">Contact</h3>
+            <h3 className="font-semibold text-[var(--color-fg)] mb-4">Contact & Metrics</h3>
             <address className="not-italic text-[var(--color-fg-muted)] text-sm space-y-3">
               <p>
                 <a href={`mailto:${siteConfig.author.email}`} className="hover:text-[var(--color-accent)] transition-colors">
@@ -84,8 +86,13 @@ export function Footer() {
                 </a>
               </p>
               <p>{siteConfig.author.location}</p>
-              <p>Available for freelance & full-time opportunities</p>
+              <p>Available for freelance & full-time roles</p>
             </address>
+
+            <div className="mt-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-accent-light)] text-[var(--color-accent)] text-xs font-semibold border border-[var(--color-accent)]/30">
+              <Eye className="h-3.5 w-3.5" />
+              <span>{visitorCount ? `${visitorCount.toLocaleString()} Total Visits` : 'Tracking visits...'}</span>
+            </div>
           </div>
         </div>
 

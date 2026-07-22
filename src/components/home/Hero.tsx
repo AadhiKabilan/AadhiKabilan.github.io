@@ -1,10 +1,13 @@
-import { ArrowRight, Zap, Shield, Smartphone, Cpu, Mail } from "lucide-react";
+import { ArrowRight, Zap, Shield, Smartphone, Cpu, Mail, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../../components/ui/Button";
 import { ScrollReveal } from "../../components/ui/ScrollReveal";
+import { useVisitorCount } from "../../hooks/useVisitorCount";
 import { useEffect } from "react";
 
 export function Hero() {
+  const { count: visitorCount } = useVisitorCount();
+
   // Inject blob animation styles
   useEffect(() => {
     const style = document.createElement("style");
@@ -152,14 +155,25 @@ export function Hero() {
                 </div>
 
                 {/* Floating badge bottom-left */}
-                <div className="absolute -bottom-4 -left-4 rounded-xl px-4 py-3 text-sm font-medium" style={{
-                  background: 'var(--glass-bg)',
-                  backdropFilter: 'blur(20px)',
-                  border: '1px solid var(--glass-border)',
-                  boxShadow: 'var(--shadow-3)',
-                  color: 'var(--color-fg)'
-                }}>
-                  <span style={{ color: '#10b981' }}>●</span> Open to work
+                <div className="absolute -bottom-4 -left-4 flex items-center gap-2">
+                  <div className="rounded-xl px-4 py-2.5 text-xs md:text-sm font-semibold flex items-center gap-2 shadow-lg" style={{
+                    background: 'var(--glass-bg)',
+                    backdropFilter: 'blur(20px)',
+                    border: '1px solid var(--glass-border)',
+                    color: 'var(--color-fg)'
+                  }}>
+                    <span style={{ color: '#10b981' }}>●</span> Open to work
+                  </div>
+
+                  <div className="rounded-xl px-3.5 py-2.5 text-xs md:text-sm font-semibold flex items-center gap-2 shadow-lg" style={{
+                    background: 'var(--glass-bg)',
+                    backdropFilter: 'blur(20px)',
+                    border: '1px solid var(--color-accent)',
+                    color: 'var(--color-accent)'
+                  }}>
+                    <Eye className="h-4 w-4 text-[var(--color-accent)] animate-pulse" />
+                    <span>{visitorCount ? `${visitorCount.toLocaleString()} Visits` : 'Loading...'}</span>
+                  </div>
                 </div>
 
                 {/* Floating badge top-right */}

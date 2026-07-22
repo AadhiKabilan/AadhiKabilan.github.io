@@ -4,12 +4,14 @@ import { Header } from '../../components/layout/Header'
 import { Footer } from '../../components/layout/Footer'
 
 export default function RootLayout() {
-  const { pathname } = useLocation()
+  const location = useLocation()
 
-  // Scroll to top on every page navigation / route change
+  // Ensure scroll is immediately reset to the top of the page on every navigation / route / parameter change
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
-  }, [pathname])
+    document.documentElement.scrollTop = 0
+    document.body.scrollTop = 0
+  }, [location.pathname, location.search, location.key])
 
   return (
     <>
