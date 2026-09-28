@@ -13,9 +13,7 @@ export function Hero() {
           <div className="space-y-6 md:space-y-8">
             {/* Availability Badge */}
             <ScrollReveal>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-[var(--color-fg)] text-sm font-medium"
-                style={{ background: 'var(--color-accent-light)', color: 'var(--color-accent)', borderColor: 'var(--color-border)' }}
-              >
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border bg-accent-light text-accent text-sm font-medium border-border">
                 Available for Hire
               </div>
             </ScrollReveal>
@@ -23,7 +21,7 @@ export function Hero() {
             {/* Headline */}
             <ScrollReveal delay={100}>
               <h1 className="font-display font-bold text-[var(--color-fg)] text-3xl md:text-4xl lg:text-5xl leading-tight mb-4 tracking-tight">
-                Building Scalable Digital Solutions
+                Data Science & Machine Learning Developer
               </h1>
             </ScrollReveal>
 
@@ -57,7 +55,7 @@ export function Hero() {
           {/* Right Column: Information Panel */}
           <div className="w-full md:w-[500px] flex flex-col items-center justify-center">
             <ScrollReveal delay={400} direction="up">
-              <div className="relative w-[480px] h-[384px] bg-[var(--color-bg-elevated)]/50 backdrop-blur-lg border border-[var(--color-border)]/30 rounded-xl p-6 shadow-[inset_0_0_0_1px_rgb(255,255,255,0.15)]">
+              <div className="relative w-full max-w-[480px] max-h-[384px] bg-[var(--color-bg-elevated)]/50 backdrop-blur-lg border border-[var(--color-border)]/30 rounded-xl p-6 shadow-[inset_0_0_0_1px_rgb(255,255,255,0.15)]">
                 <div className="space-y-5">
                   <div className="flex items-center gap-5">
                     <GraduationCap className="h-6 w-6 text-[var(--color-accent)]" />
