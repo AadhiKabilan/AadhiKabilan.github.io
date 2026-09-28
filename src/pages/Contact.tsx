@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Mail, Github, MapPin, Send, Loader2, CheckCircle, AlertCircle } from "lucide-react";
+import { Mail, Github, MapPin, Linkedin, Send, Loader2, CheckCircle, AlertCircle } from "lucide-react";
 import { GlassCard } from "../components/ui/GlassCard";
 import { ScrollReveal } from "../components/ui/ScrollReveal";
 import { Button } from "../components/ui/Button";
@@ -71,18 +71,26 @@ export default function ContactPage() {
       external: true,
     },
     {
+      icon: Linkedin,
+      label: "LinkedIn",
+      value: "linkedin.com/in/aadhi-kabilan-j-b840751bb",
+      action: "https://linkedin.com/in/aadhi-kabilan-j-b840751bb",
+      description: "Professional profile",
+      external: true,
+    },
+    {
       icon: MapPin,
       label: "Location",
-      value: "Tamil Nadu, India",
+      value: "Puducherry, India",
       description: "Available for remote work",
     },
-    
+
   ];
 
   if (submitStatus === "success") {
     return (
       <>
-        <main id="main-content" className="pt-16 min-h-screen flex items-center justify-center px-4 py-16">
+        <main id="main-content" className="min-h-screen flex items-center justify-center px-4 py-16">
           <ScrollReveal className="max-w-md w-full text-center">
             <GlassCard className="p-10">
               <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-success-light)] flex items-center justify-center">
@@ -93,7 +101,7 @@ export default function ContactPage() {
               </h1>
               <p className="text-[var(--color-fg-muted)] leading-relaxed mb-8">
                 Thank you for reaching out. I'll get back to you within 24 hours.
-                In the meantime, feel free to check out my projects or connect on GitHub.
+                In the meantime, feel free to check out my projects or connect on GitHub or LinkedIn.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild onClick={() => window.location.href = "/projects"}>
@@ -112,8 +120,8 @@ export default function ContactPage() {
 
   return (
     <>
-      <main id="main-content" className="pt-16">
-        <section className="relative py-16 md:py-24 overflow-hidden" aria-labelledby="contact-heading" style={{ background: 'var(--color-bg-subtle)' }}>
+      <main id="main-content">
+        <section className="relative pt-8 pb-16 md:pt-12 md:pb-24 overflow-hidden" aria-labelledby="contact-heading" style={{ background: 'var(--color-bg-subtle)' }}>
           <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
             <div className="orb orb-1" style={{ top: '-15%', right: '-10%', opacity: 0.2 }} />
             <div className="orb orb-3" style={{ bottom: '-10%', left: '-5%', opacity: 0.18 }} />

@@ -2,30 +2,30 @@ import { cn } from '../../lib/utils'
 import { forwardRef, HTMLAttributes } from 'react'
 
 export interface GlassCardProps extends HTMLAttributes<HTMLDivElement> {
-  variant?: 'default' | 'strong' | 'hover-lift'
+  variant?: 'default' | 'elevated' | 'hover-lift'
   padding?: 'none' | 'sm' | 'md' | 'lg'
 }
 
 export const GlassCard = forwardRef<HTMLDivElement, GlassCardProps>(
   ({ className, variant = 'default', padding = 'md', children, ...props }, ref) => {
     const variants = {
-      default: 'bg-[var(--glass-bg)] backdrop-[var(--glass-backdrop)] border border-[var(--glass-border)] shadow-[var(--glass-shadow)]',
-      strong: 'bg-[var(--glass-bg)] backdrop-[var(--glass-backdrop)] border border-[var(--glass-border)] shadow-[var(--glass-shadow)], var(--shadow-2)',
-      'hover-lift': 'bg-[var(--glass-bg)] backdrop-[var(--glass-backdrop)] border border-[var(--glass-border)] shadow-[var(--glass-shadow)] transition-all duration-300 ease-out hover:shadow-[var(--glass-shadow)], var(--shadow-3) hover:-translate-y-1',
+      default: 'bg-[var(--color-bg-elevated)] border border-[var(--color-border)]',
+      elevated: 'bg-[var(--color-bg-elevated)] border border-[var(--color-border)] shadow-md',
+      'hover-lift': 'bg-[var(--color-bg-elevated)] border border-[var(--color-border)] shadow-sm transition-all duration-200 ease-out hover:shadow-md hover:-translate-y-1',
     }
 
     const paddings = {
       none: '',
-      sm: 'p-4',
-      md: 'p-6',
-      lg: 'p-8',
+      sm: 'p-3',
+      md: 'p-5',
+      lg: 'p-7',
     }
 
     return (
       <div
         ref={ref}
         className={cn(
-          'rounded-[var(--radius-xl)]',
+          'rounded-lg',
           variants[variant],
           paddings[padding],
           className

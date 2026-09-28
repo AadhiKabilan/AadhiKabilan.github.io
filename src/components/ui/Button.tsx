@@ -3,7 +3,7 @@ import { cn } from "../../lib/utils";
 import { forwardRef, type ButtonHTMLAttributes } from "react";
 
 export interface ButtonVariantsProps {
-  variant?: "primary" | "secondary" | "ghost" | "glass" | "outline" | "destructive";
+  variant?: "primary" | "secondary" | "ghost" | "outline" | "destructive";
   size?: "sm" | "md" | "lg" | "icon";
   loading?: boolean;
   asChild?: boolean;
@@ -16,12 +16,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBut
     const baseStyles = "inline-flex items-center justify-center gap-2 font-medium transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)] disabled:opacity-50 disabled:pointer-events-none";
 
     const variants: Record<string, string> = {
-      primary: "bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] shadow-[var(--shadow-2)] hover:shadow-[var(--shadow-3)] active:scale-[0.98]",
+      primary: "bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] shadow-sm hover:shadow-md active:scale-[0.98]",
       secondary: "bg-[var(--color-bg-elevated)] text-[var(--color-fg)] border border-[var(--color-border)] hover:bg-[var(--color-bg-subtle)] hover:border-[var(--color-border-strong)]",
       ghost: "bg-transparent text-[var(--color-fg)] hover:bg-[var(--color-bg-subtle)]",
-      glass: "bg-[var(--glass-bg)] backdrop-[var(--glass-backdrop)] border border-[var(--glass-border)] text-[var(--color-fg)] shadow-[var(--glass-shadow)] hover:bg-[var(--color-bg-elevated)]",
       outline: "bg-transparent text-[var(--color-fg)] border border-[var(--color-border)] hover:bg-[var(--color-bg-subtle)] hover:border-[var(--color-border-strong)]",
-      destructive: "bg-[var(--color-error)] text-white hover:bg-[var(--color-error)]/90 shadow-[var(--shadow-2)] hover:shadow-[var(--shadow-3)]",
+      destructive: "bg-[var(--color-error)] text-white hover:bg-[var(--color-error)]/90 shadow-sm hover:shadow-md",
     };
 
     const sizes: Record<string, string> = {

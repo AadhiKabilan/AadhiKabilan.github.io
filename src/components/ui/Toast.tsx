@@ -78,7 +78,7 @@ function ToastViewport({ toasts, onDismiss }: { toasts: Toast[]; onDismiss: (id:
 
 function ToastItem({ toast, onDismiss }: { toast: Toast; onDismiss: (id: string) => void }) {
   const variantStyles = {
-    default: "bg-[var(--glass-bg)] border-[var(--glass-border)]",
+    default: "bg-[var(--color-bg-elevated)] border border-[var(--color-border)]",
     success: "bg-[var(--color-success)]/10 border-[var(--color-success)]/30",
     error: "bg-[var(--color-error)]/10 border-[var(--color-error)]/30",
     warning: "bg-[var(--color-warning)]/10 border-[var(--color-warning)]/30",
@@ -117,7 +117,7 @@ function ToastItem({ toast, onDismiss }: { toast: Toast; onDismiss: (id: string)
   return (
     <div
       className={cn(
-        "pointer-events-auto flex items-start gap-3 p-4 rounded-xl shadow-lg backdrop-[var(--glass-backdrop)] border min-w-[300px] max-w-[400px] animate-slide-in",
+        "pointer-events-auto flex items-start gap-3 p-4 rounded-xl border shadow-md min-w-[300px] max-w-[400px] animate-slide-in",
         variantStyles[toast.variant ?? "default"]
       )}
       role="alert"

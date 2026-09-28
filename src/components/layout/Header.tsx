@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Github, Linkedin, Mail, Twitter } from "lucide-react";
-import { ThemeToggle } from "../theme/ThemeToggle";
+import { ThemeToggleSimple } from "../theme/ThemeToggle";
 import { cn } from "../../lib/utils";
 import { useState, useEffect } from "react";
 
@@ -8,23 +8,16 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY > 20) {
+      if (currentScrollY > 10) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
-      }
-
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
       }
 
       setLastScrollY(currentScrollY);
@@ -39,6 +32,7 @@ export function Header() {
   }, [location.pathname]);
 
   const navLinks = [
+    { label: "Home", href: "/" },
     { label: "Projects", href: "/projects" },
     { label: "Experience", href: "/experience" },
     { label: "Skills", href: "/skills" },
@@ -48,10 +42,9 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out",
-        "bg-[var(--glass-bg)] backdrop-[var(--glass-backdrop)] border-b border-[var(--glass-border)]",
-        isScrolled && "shadow-[var(--shadow-2)]",
-        !isVisible && "-translate-y-full"
+        "relative top-0 left-0 right-0 z-60 transition-all duration-150 ease-out",
+        "bg-[var(--color-bg)] border-b border-[var(--color-border)]",
+        isScrolled && "bg-[var(--color-bg-elevated)]"
       )}
       role="banner"
     >
@@ -62,8 +55,7 @@ export function Header() {
             className="flex items-center gap-2 font-display font-bold text-xl md:text-2xl text-[var(--color-fg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)] rounded-md px-2 py-1 -ml-2"
             aria-label="Aadhi Kabilan J - Home"
           >
-            <span className="text-[var(--color-accent)]">AK</span>
-            <span className="hidden sm:inline">Aadhi Kabilan</span>
+            <span>AADHI KABILAN J</span>
           </Link>
 
           <div className="hidden md:flex items-center gap-1">
@@ -85,7 +77,7 @@ export function Header() {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            <ThemeToggle />
+            <ThemeToggleSimple />
             <a
               href="https://github.com/AadhiKabilan"
               target="_blank"
@@ -96,7 +88,7 @@ export function Header() {
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="https://linkedin.com/in/aadhikabilan"
+              href="https://linkedin.com/in/aadhi-kabilan-j-b840751bb"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg text-[var(--color-fg-muted)] hover:text-[var(--color-accent)] hover:bg-[var(--color-bg-subtle)] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
@@ -105,7 +97,7 @@ export function Header() {
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href="mailto:jaadhikabilan@gmail.com"
+              href="mailto:aadhikabilanj@gmail.com"
               className="p-2 rounded-lg text-[var(--color-fg-muted)] hover:text-[var(--color-accent)] hover:bg-[var(--color-bg-subtle)] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
               aria-label="Email"
             >
@@ -149,47 +141,47 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
+          </div>
 
-            <div className="pt-4 border-t border-[var(--color-border)]">
-              <ThemeToggle />
-            </div>
+          <div className="pt-4 border-t border-[var(--color-border)]">
+            <ThemeToggleSimple />
+          </div>
 
-            <div className="pt-4 flex items-center gap-3">
-              <a
-                href="https://github.com/AadhiKabilan"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg text-[var(--color-fg-muted)] hover:text-[var(--color-accent)] hover:bg-[var(--color-bg-subtle)] transition-all"
-                aria-label="GitHub"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-              <a
-                href="https://linkedin.com/in/aadhikabilan"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg text-[var(--color-fg-muted)] hover:text-[var(--color-accent)] hover:bg-[var(--color-bg-subtle)] transition-all"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href="mailto:jaadhikabilan@gmail.com"
-                className="p-2 rounded-lg text-[var(--color-fg-muted)] hover:text-[var(--color-accent)] hover:bg-[var(--color-bg-subtle)] transition-all"
-                aria-label="Email"
-              >
-                <Mail className="h-5 w-5" />
-              </a>
-              <a
-                href="https://twitter.com/aadhikabilan"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg text-[var(--color-fg-muted)] hover:text-[var(--color-accent)] hover:bg-[var(--color-bg-subtle)] transition-all"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-            </div>
+          <div className="pt-4 flex items-center gap-3">
+            <a
+              href="https://github.com/AadhiKabilan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg text-[var(--color-fg-muted)] hover:text-[var(--color-accent)] hover:bg-[var(--color-bg-subtle)] transition-all"
+              aria-label="GitHub"
+            >
+              <Github className="h-5 w-5" />
+            </a>
+            <a
+              href="https://linkedin.com/in/aadhi-kabilan-j-b840751bb"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg text-[var(--color-fg-muted)] hover:text-[var(--color-accent)] hover:bg-[var(--color-bg-subtle)] transition-all"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="h-5 w-5" />
+            </a>
+            <a
+              href="mailto:aadhikabilanj@gmail.com"
+              className="p-2 rounded-lg text-[var(--color-fg-muted)] hover:text-[var(--color-accent)] hover:bg-[var(--color-bg-subtle)] transition-all"
+              aria-label="Email"
+            >
+              <Mail className="h-5 w-5" />
+            </a>
+            <a
+              href="https://twitter.com/aadhikabilan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg text-[var(--color-fg-muted)] hover:text-[var(--color-accent)] hover:bg-[var(--color-bg-subtle)] transition-all"
+              aria-label="Twitter"
+            >
+              <Twitter className="h-5 w-5" />
+            </a>
           </div>
         </div>
       </nav>

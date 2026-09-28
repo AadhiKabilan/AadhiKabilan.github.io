@@ -100,28 +100,12 @@ export const skills: Skill[] = [
     description: 'API design, HTTP protocols, versioning, JWT authentication',
   },
   {
-    name: 'Node.js',
-    category: 'web',
-    proficiency: 75,
-    icon: 'nodejs',
-    iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
-    description: 'Express.js backend development, NPM ecosystem, middleware',
-  },
-  {
     name: 'Flask',
     category: 'web',
     proficiency: 80,
     icon: 'flask',
     iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg',
     description: 'Micro web framework for lightweight Python APIs & web apps',
-  },
-  {
-    name: 'Next.js',
-    category: 'web',
-    proficiency: 75,
-    icon: 'nextjs',
-    iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
-    description: 'Full-stack React framework, SSR/SSG, App Router',
   },
 
   // AI/ML
@@ -166,22 +150,6 @@ export const skills: Skill[] = [
     description: 'Data manipulation, DataFrame transformation, exploratory data analysis',
   },
   {
-    name: 'Ensemble Methods',
-    category: 'ai-ml',
-    proficiency: 85,
-    icon: 'chart-bar',
-    iconUrl: 'https://cdn.simpleicons.org/scikitlearn/F7931E',
-    description: 'Random Forest, XGBoost, LightGBM, Bagging & Boosting techniques',
-  },
-  {
-    name: 'Anomaly Detection',
-    category: 'ai-ml',
-    proficiency: 85,
-    icon: 'alert-triangle',
-    iconUrl: 'https://cdn.simpleicons.org/python/3776AB',
-    description: 'Isolation Forest, One-Class SVM, behavioral security analysis',
-  },
-  {
     name: 'Tkinter',
     category: 'ai-ml',
     proficiency: 80,
@@ -198,14 +166,6 @@ export const skills: Skill[] = [
     icon: 'git',
     iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
     description: 'Version control, collaborative workflows, CI/CD Actions',
-  },
-  {
-    name: 'Docker',
-    category: 'tools',
-    proficiency: 82,
-    icon: 'docker',
-    iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
-    description: 'Containerization, Dockerfiles, multi-container deployment',
   },
   {
     name: 'Linux/Unix',
@@ -230,14 +190,6 @@ export const skills: Skill[] = [
     icon: 'vscode',
     iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg',
     description: 'IDE custom workflows, debugging, extension configuration',
-  },
-  {
-    name: 'AWS',
-    category: 'tools',
-    proficiency: 70,
-    icon: 'aws',
-    iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
-    description: 'Cloud hosting, EC2 instances, S3 bucket storage, cloud deployment',
   },
 
   // Databases
@@ -273,15 +225,7 @@ export const skills: Skill[] = [
     iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg',
     description: 'Embedded databases for desktop & mobile applications',
   },
-  {
-    name: 'Redis',
-    category: 'databases',
-    proficiency: 72,
-    icon: 'redis',
-    iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg',
-    description: 'In-memory caching, key-value data structures, session storage',
-  },
-]
+  ]
 
 export const skillsByCategory = {
   languages: skills.filter((s) => s.category === 'languages'),

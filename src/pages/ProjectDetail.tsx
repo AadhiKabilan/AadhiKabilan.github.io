@@ -14,14 +14,11 @@ import {
   ChevronRight,
   Download,
 } from 'lucide-react'
-import { GlassCard } from '../components/ui/GlassCard'
 import { ScrollReveal } from '../components/ui/ScrollReveal'
 import { Button } from '../components/ui/Button'
 import { getProjectBySlug, getRelatedProjects } from '../data/projects'
 import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect, useCallback } from 'react'
-
-
 
 export default function ProjectDetailPage() {
   const { slug } = useParams<{ slug: string }>()
@@ -30,7 +27,7 @@ export default function ProjectDetailPage() {
   // State for Full Image Lightbox Modal
   const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null)
 
-  // Force scroll to top whenever the project slug changes (e.g. clicking a related project card)
+  // Force scroll to top whenever the project slug changes
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
     document.documentElement.scrollTop = 0
@@ -67,7 +64,7 @@ export default function ProjectDetailPage() {
 
   if (!project) {
     return (
-      <main id="main-content" className="pt-16 min-h-screen flex items-center justify-center">
+      <main id="main-content" className="min-h-screen flex items-center justify-center">
         <div className="text-center p-8">
           <h1 className="font-display font-bold text-[var(--color-fg)] text-4xl mb-4">Project Not Found</h1>
           <p className="text-[var(--color-fg-muted)] mb-8">The project you're looking for doesn't exist.</p>
@@ -100,17 +97,17 @@ export default function ProjectDetailPage() {
   }
 
   return (
-    <main id="main-content" className="pt-16 min-h-screen relative">
+    <main id="main-content" className="min-h-screen relative">
       {/* Full Resolution Image Lightbox Modal */}
       {activeImageIndex !== null && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4 animate-fade-in">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
           {/* Close button */}
           <button
             onClick={closeLightbox}
-            className="absolute top-5 right-5 z-50 p-3 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all border border-white/20 shadow-xl"
+            className="absolute top-4 right-4 z-50 p-2 rounded-full bg-[var(--color-bg-elevated)]/50 text-[var(--color-fg)] hover:bg-[var(--color-bg-elevated)] transition-colors"
             aria-label="Close full view"
           >
-            <X className="h-6 w-6" />
+            <X className="h-5 w-5" />
           </button>
 
           {/* Navigation Controls */}
@@ -118,38 +115,38 @@ export default function ProjectDetailPage() {
             <>
               <button
                 onClick={prevImage}
-                className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all border border-white/20 shadow-xl"
+                className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-50 p-2 rounded-full bg-[var(--color-bg-elevated)]/50 text-[var(--color-fg)] hover:bg-[var(--color-bg-elevated)] transition-colors"
                 aria-label="Previous image"
               >
-                <ChevronLeft className="h-6 w-6" />
+                <ChevronLeft className="h-5 w-5" />
               </button>
               <button
                 onClick={nextImage}
-                className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all border border-white/20 shadow-xl"
+                className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-50 p-2 rounded-full bg-[var(--color-bg-elevated)]/50 text-[var(--color-fg)] hover:bg-[var(--color-bg-elevated)] transition-colors"
                 aria-label="Next image"
               >
-                <ChevronRight className="h-6 w-6" />
+                <ChevronRight className="h-5 w-5" />
               </button>
             </>
           )}
 
           {/* Lightbox Content Container */}
-          <div className="relative max-w-5xl w-full max-h-[85vh] flex flex-col items-center justify-center" onClick={(e) => e.stopPropagation()}>
+          <div className="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center justify-center" onClick={(e) => e.stopPropagation()}>
             <img
               src={project.images[activeImageIndex]}
               alt={`${project.title} screenshot ${activeImageIndex + 1}`}
-              className="max-w-full max-h-[75vh] object-contain rounded-xl shadow-2xl border border-white/10"
+              className="max-w-full max-h-[80vh] object-contain rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)]"
             />
-            <div className="mt-4 flex items-center gap-4 text-white text-sm font-medium">
+            <div className="mt-3 flex items-center gap-3 text-[var(--color-fg-muted)] text-sm font-medium">
               <span>
                 Screenshot {activeImageIndex + 1} of {project.images.length}
               </span>
-              <span className="opacity-40">•</span>
+              <span className="mx-2">•</span>
               <a
                 href={project.images[activeImageIndex]}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-indigo-400 hover:text-indigo-300 transition-colors"
+                className="flex items-center gap-1 text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors"
               >
                 <Download className="h-4 w-4" />
                 Original View
@@ -159,91 +156,98 @@ export default function ProjectDetailPage() {
         </div>
       )}
 
-      <article>
-        {/* Header Hero Banner with Real Image */}
-        <header className="relative min-h-[60vh] flex items-end overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-bg)]/50 to-[var(--color-bg)] z-10" />
-          <div className="absolute inset-0 z-0 cursor-pointer group" onClick={() => openLightbox(0)}>
-            <img src={project.thumbnail} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-[var(--color-bg)]" />
-            <div className="absolute top-20 right-6 z-20 hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md text-white text-xs font-medium border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity">
-              <Maximize2 className="h-3.5 w-3.5" />
-              Click to view full cover
-            </div>
-          </div>
+      <article className="pt-8 pb-12 md:pt-12 md:pb-16">
+        {/* Separated Text/Image Header */}
+        <section className="relative">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="grid gap-8 md:gap-12 md:grid-cols-2 items-start">
+              {/* Text Column: category, title, description, metadata */}
+              <div className="space-y-6 md:space-y-8">
+                <ScrollReveal direction="up">
+                  <span
+                    className="px-3 py-0.5 text-xs font-semibold rounded-full mb-3 inline-block tracking-wide uppercase"
+                    style={{ backgroundColor: 'var(--color-accent-light)', color: 'var(--color-accent)', border: '1px solid var(--color-accent)' }}
+                  >
+                    {project.category.replace('-', ' ')}
+                  </span>
+                </ScrollReveal>
+                <ScrollReveal delay={100} direction="up">
+                  <h1 className="font-display font-bold text-[var(--color-fg)] text-3xl md:text-4xl lg:text-5xl leading-tight mb-4">
+                    {project.title}
+                  </h1>
+                </ScrollReveal>
+                <ScrollReveal delay={200} direction="up">
+                  <p className="text-[var(--color-fg-muted)] text-lg md:text-xl leading-relaxed mb-6 max-w-2xl">
+                    {project.shortDescription}
+                  </p>
+                </ScrollReveal>
+                <ScrollReveal delay={300} direction="up">
+                  <div className="flex flex-wrap items-center gap-4">
+                    <div className="flex items-center gap-2 text-sm text-[var(--color-fg-muted)]">
+                      <span className="px-3 py-1 rounded-full bg-[var(--color-bg-subtle)] border border-[var(--color-border)] font-medium">
+                        {project.startDate} - {project.endDate || 'Present'}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-3 py-2 rounded-md text-sm font-semibold transition-all"
+                          style={{ backgroundColor: 'var(--color-accent)', color: 'white', border: '1px solid transparent' }}
+                        >
+                          <ExternalLink className="h-4 w-4" />
+                          Live Demo
+                        </a>
+                      )}
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-3 py-2 rounded-md text-sm font-semibold transition-all border border-[var(--color-border)]"
+                          style={{ backgroundColor: 'var(--color-bg-elevated)', color: 'var(--color-fg)' }}
+                        >
+                          <Github className="h-4 w-4" />
+                          Source Code
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </ScrollReveal>
+              </div>
 
-          <div className="relative z-20 container mx-auto px-4 md:px-6 mb-12">
-            <div className="max-w-4xl">
-              <ScrollReveal direction="up">
-                <span
-                  className="px-3.5 py-1 text-xs font-semibold rounded-full mb-4 inline-block tracking-wide uppercase"
-                  style={{ backgroundColor: 'var(--color-accent-light)', color: 'var(--color-accent)', border: '1px solid var(--color-accent)' }}
-                >
-                  {project.category.replace('-', ' ')}
-                </span>
-                <h1 className="font-display font-bold text-[var(--color-fg)] text-4xl md:text-5xl lg:text-6xl leading-tight mb-4">
-                  {project.title}
-                </h1>
-              </ScrollReveal>
-              <ScrollReveal delay={100} direction="up">
-                <p className="text-[var(--color-fg-muted)] text-lg md:text-xl leading-relaxed mb-6 max-w-3xl">
-                  {project.shortDescription}
-                </p>
-              </ScrollReveal>
-              <ScrollReveal delay={200} direction="up">
-                <div className="flex flex-wrap items-center gap-4">
-                  <div className="flex items-center gap-2 text-sm text-[var(--color-fg-muted)]">
-                    <span className="px-3 py-1 rounded-full bg-[var(--color-bg-subtle)] border border-[var(--color-border)] font-medium">
-                      {project.startDate} - {project.endDate || 'Present'}
-                    </span>
+              {/* Image Column: clean image panel with border/shadow */}
+              <div>
+                <ScrollReveal delay={400} direction="up">
+                  <div className="relative aspect-[16/9] w-full rounded-lg overflow-hidden border border-[var(--color-border)] shadow-lg">
+                    <div className="absolute inset-0 z-0 cursor-pointer group" onClick={() => openLightbox(0)}>
+                      <img src={project.thumbnail} alt={project.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                      <div className="absolute inset-0 bg-black/20" />
+                    </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    {project.liveUrl && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all shadow-md"
-                        style={{ backgroundColor: 'var(--color-accent)', color: 'white' }}
-                      >
-                        <ExternalLink className="h-4 w-4" />
-                        Live Demo
-                      </a>
-                    )}
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all"
-                        style={{ backgroundColor: 'var(--color-bg-elevated)', color: 'var(--color-fg)', border: '1px solid var(--color-border)' }}
-                      >
-                        <Github className="h-4 w-4" />
-                        Source Code
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </ScrollReveal>
+                </ScrollReveal>
+              </div>
             </div>
           </div>
-        </header>
+        </section>
 
         {/* Project Content Body */}
         <div className="container mx-auto px-4 md:px-6 py-12 md:py-20">
           <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
-            <div className="lg:col-span-2 space-y-12">
+            <div className="lg:col-span-2 space-y-10">
               <section aria-labelledby="problem-heading">
                 <ScrollReveal delay={300}>
                   <h2 id="problem-heading" className="font-display font-bold text-[var(--color-fg)] text-2xl md:text-3xl mb-4 flex items-center gap-3">
-                    <span className="w-8 h-8 rounded-lg bg-[var(--color-accent-light)] flex items-center justify-center text-[var(--color-accent)]">
+                    <span className="w-8 h-8 rounded-lg flex items-center justify-center text-[var(--color-accent)] bg-[var(--color-bg-elevated)]">
                       <Shield className="h-4 w-4" />
                     </span>
                     The Problem
                   </h2>
                 </ScrollReveal>
                 <ScrollReveal delay={400}>
-                  <p className="text-[var(--color-fg-muted)] leading-relaxed text-lg bg-[var(--glass-bg)] p-6 rounded-2xl border border-[var(--glass-border)]">
+                  <p className="text-[var(--color-fg-muted)] leading-relaxed text-lg p-4 bg-[var(--color-bg-subtle)] rounded-lg">
                     {project.problem}
                   </p>
                 </ScrollReveal>
@@ -252,16 +256,16 @@ export default function ProjectDetailPage() {
               <section aria-labelledby="approach-heading">
                 <ScrollReveal delay={500}>
                   <h2 id="approach-heading" className="font-display font-bold text-[var(--color-fg)] text-2xl md:text-3xl mb-4 flex items-center gap-3">
-                    <span className="w-8 h-8 rounded-lg bg-[var(--color-accent-light)] flex items-center justify-center text-[var(--color-accent)]">
+                    <span className="w-8 h-8 rounded-lg flex items-center justify-center text-[var(--color-accent)] bg-[var(--color-bg-elevated)]">
                       <Brain className="h-4 w-4" />
                     </span>
                     Approach & Solution
                   </h2>
                 </ScrollReveal>
                 <ScrollReveal delay={600}>
-                  <div className="space-y-4 text-[var(--color-fg-muted)] leading-relaxed text-lg bg-[var(--glass-bg)] p-6 rounded-2xl border border-[var(--glass-border)]">
+                  <div className="space-y-4 text-[var(--color-fg-muted)] leading-relaxed text-lg p-4 bg-[var(--color-bg-subtle)] rounded-lg">
                     <p>{project.approach}</p>
-                    <div className="w-full h-px bg-[var(--color-border)] my-4" />
+                    <div className="h-0.5 my-4 bg-[var(--color-border)]" />
                     <p>{project.solution}</p>
                   </div>
                 </ScrollReveal>
@@ -270,7 +274,7 @@ export default function ProjectDetailPage() {
               <section aria-labelledby="outcomes-heading">
                 <ScrollReveal delay={800}>
                   <h2 id="outcomes-heading" className="font-display font-bold text-[var(--color-fg)] text-2xl md:text-3xl mb-4 flex items-center gap-3">
-                    <span className="w-8 h-8 rounded-lg bg-[var(--color-accent-light)] flex items-center justify-center text-[var(--color-accent)]">
+                    <span className="w-8 h-8 rounded-lg flex items-center justify-center text-[var(--color-accent)] bg-[var(--color-bg-elevated)]">
                       <BarChart className="h-4 w-4" />
                     </span>
                     Key Outcomes & Impact
@@ -279,9 +283,9 @@ export default function ProjectDetailPage() {
                 <ScrollReveal delay={900}>
                   <ul className="space-y-3">
                     {project.outcomes.map((outcome, idx) => (
-                      <li key={idx} className="flex items-start gap-3 p-4 rounded-xl bg-[var(--glass-bg)] border border-[var(--glass-border)] group">
-                        <span className="w-6 h-6 rounded-full bg-emerald-500/15 text-emerald-500 flex items-center justify-center flex-shrink-0 mt-0.5 font-bold text-xs">
-                          <Check className="h-3.5 w-3.5" />
+                      <li key={idx} className="flex items-start gap-3 p-3 rounded-lg bg-[var(--color-bg-subtle)]">
+                        <span className="w-5 h-5 rounded-full bg-[var(--color-success)]/20 text-[var(--color-success)] flex items-center justify-center flex-shrink-0 mt-0.5 font-bold text-xs">
+                          <Check className="h-3 w-3" />
                         </span>
                         <p className="text-[var(--color-fg)] leading-relaxed font-medium">{outcome}</p>
                       </li>
@@ -293,18 +297,18 @@ export default function ProjectDetailPage() {
               <section aria-labelledby="tech-heading">
                 <ScrollReveal delay={1000}>
                   <h2 id="tech-heading" className="font-display font-bold text-[var(--color-fg)] text-2xl md:text-3xl mb-4 flex items-center gap-3">
-                    <span className="w-8 h-8 rounded-lg bg-[var(--color-accent-light)] flex items-center justify-center text-[var(--color-accent)]">
+                    <span className="w-8 h-8 rounded-lg flex items-center justify-center text-[var(--color-accent)] bg-[var(--color-bg-elevated)]">
                       <Code className="h-4 w-4" />
                     </span>
                     Technologies Used
                   </h2>
                 </ScrollReveal>
                 <ScrollReveal delay={1100}>
-                  <div className="flex flex-wrap gap-2.5">
+                  <div className="flex flex-wrap gap-3">
                     {project.techStack.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3.5 py-1.5 text-xs font-semibold rounded-full bg-[var(--color-accent-light)] text-[var(--color-accent)] border border-[var(--color-accent)]/30 shadow-sm"
+                        className="px-3 py-1.5 text-xs font-semibold rounded-full bg-[var(--color-accent-light)] text-[var(--color-accent)] border border-[var(--color-accent)]/30"
                       >
                         {tech}
                       </span>
@@ -319,7 +323,7 @@ export default function ProjectDetailPage() {
                   <ScrollReveal delay={1200}>
                     <div className="flex items-center justify-between mb-4">
                       <h2 id="gallery-heading" className="font-display font-bold text-[var(--color-fg)] text-2xl md:text-3xl flex items-center gap-3">
-                        <span className="w-8 h-8 rounded-lg bg-[var(--color-accent-light)] flex items-center justify-center text-[var(--color-accent)]">
+                        <span className="w-8 h-8 rounded-lg flex items-center justify-center text-[var(--color-accent)] bg-[var(--color-bg-elevated)]">
                           <Image className="h-4 w-4" />
                         </span>
                         Project Screenshots & Artifacts
@@ -332,17 +336,17 @@ export default function ProjectDetailPage() {
                       {project.images.map((img, idx) => (
                         <div
                           key={idx}
-                          className="group relative aspect-[16/10] overflow-hidden rounded-2xl border border-[var(--glass-border)] cursor-pointer shadow-md hover:shadow-xl transition-all duration-300"
+                          className="group relative aspect-[16/10] overflow-hidden rounded-lg border border-[var(--color-border)] cursor-pointer hover:border-[var(--color-border-strong)] transition-all duration-200"
                           onClick={() => openLightbox(idx)}
                         >
                           <img
                             src={img}
                             alt={`${project.title} - Screenshot ${idx + 1}`}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                             loading="lazy"
                           />
-                          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2 text-white font-medium text-sm">
-                            <Maximize2 className="h-5 w-5" />
+                          <div className="absolute inset-0 bg-[var(--color-bg)]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2 text-[var(--color-fg)] text-sm">
+                            <Maximize2 className="h-4 w-4" />
                             <span>View Full Screen</span>
                           </div>
                         </div>
@@ -355,13 +359,13 @@ export default function ProjectDetailPage() {
 
             {/* Sidebar Details Card */}
             <aside className="space-y-6">
-              <GlassCard className="sticky top-24 border border-[var(--glass-border)] shadow-xl">
-                <h3 className="font-display font-bold text-[var(--color-fg)] text-xl mb-4 border-b border-[var(--glass-border)] pb-3">Project Metadata</h3>
+              <div className="border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-elevated)] p-6">
+                <h3 className="font-display font-bold text-[var(--color-fg)] text-xl mb-4 border-b border-[var(--color-border)] pb-3">Project Metadata</h3>
                 <dl className="space-y-4 text-sm">
                   <div>
                     <dt className="text-[var(--color-fg-subtle)] text-xs uppercase tracking-wider mb-1">Project Status</dt>
                     <dd className="text-[var(--color-fg)] font-semibold flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                      <span className="w-2 h-2 rounded-full bg-[var(--color-success)]/20" />
                       {project.endDate ? 'Completed' : 'In Active Development'}
                     </dd>
                   </div>
@@ -386,20 +390,20 @@ export default function ProjectDetailPage() {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-6 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200"
-                    style={{ backgroundColor: 'var(--color-bg-elevated)', color: 'var(--color-fg)', border: '1px solid var(--color-border)' }}
+                    className="mt-6 flex items-center justify-center gap-2 px-3 py-2 rounded-md text-sm font-semibold transition-all border border-[var(--color-border)]"
+                    style={{ backgroundColor: 'var(--color-bg-elevated)', color: 'var(--color-fg)' }}
                   >
                     <Github className="h-4 w-4" />
                     Source Code on GitHub
                   </a>
                 )}
-              </GlassCard>
+              </div>
             </aside>
           </div>
 
           {/* Related Projects Section */}
           {relatedProjects.length > 0 && (
-            <section aria-labelledby="related-heading" className="mt-20 pt-12 border-t border-[var(--color-border)]">
+            <section aria-labelledby="related-heading" className="mt-16 pt-10 border-t border-[var(--color-border)]">
               <ScrollReveal delay={1400}>
                 <h2 id="related-heading" className="font-display font-bold text-[var(--color-fg)] text-2xl md:text-3xl mb-8">
                   Related Projects
@@ -408,30 +412,30 @@ export default function ProjectDetailPage() {
               <div className="grid md:grid-cols-3 gap-6">
                 {relatedProjects.map((p) => (
                   <Link key={p.slug} to={`/projects/${p.slug}`} className="group">
-                    <GlassCard className="h-full group-hover:border-[var(--color-accent)]/40 transition-all duration-300 flex flex-col justify-between">
+                    <div className="border border-[var(--color-border)] rounded-lg overflow-hidden hover:border-[var(--color-border-strong)] transition-all duration-200 flex flex-col h-full">
                       <div>
-                        <div className="aspect-[4/3] relative overflow-hidden rounded-xl mb-4">
-                          <img src={p.thumbnail} alt={p.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                        <div className="aspect-[4/3] relative overflow-hidden">
+                          <img src={p.thumbnail} alt={p.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
                         </div>
-                        <h3 className="font-display font-bold text-[var(--color-fg)] text-lg mb-2 group-hover:text-[var(--color-accent)] transition-colors">
+                        <h3 className="font-display font-bold text-[var(--color-fg)] text-lg mb-3 group-hover:text-[var(--color-accent)] transition-colors p-4">
                           {p.title}
                         </h3>
-                        <p className="text-[var(--color-fg-muted)] text-sm line-clamp-2 leading-relaxed mb-4">{p.shortDescription}</p>
+                        <p className="text-[var(--color-fg-muted)] text-sm line-clamp-2 leading-relaxed flex-1 p-4">{p.shortDescription}</p>
                       </div>
-                      <span className="text-xs font-semibold text-[var(--color-accent)] flex items-center gap-1">
+                      <span className="text-xs font-semibold text-[var(--color-accent)] flex items-center gap-1 p-4">
                         View Case Study &rarr;
                       </span>
-                    </GlassCard>
+                    </div>
                   </Link>
                 ))}
               </div>
             </section>
           )}
 
-          <div className="mt-16 pt-8 border-t border-[var(--color-border)]">
+          <div className="mt-12 pt-8 border-t border-[var(--color-border)]">
             <Link
               to="/projects"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-[var(--color-accent)] bg-[var(--color-accent-light)] border border-[var(--color-accent)]/30 hover:bg-[var(--color-accent)] hover:text-white transition-all shadow-sm"
+              className="inline-flex items-center gap-2 px-3 py-2 rounded-md text-sm font-semibold text-[var(--color-accent)] bg-[var(--color-accent-light)] border border-[var(--color-accent)]/30 hover:bg-[var(--color-accent)] hover:text-white transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />
               Back to All Projects

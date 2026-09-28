@@ -24,7 +24,7 @@ export const ScrollReveal = forwardRef<HTMLDivElement, ScrollRevealProps>(
       children,
       className,
       delay = 0,
-      duration = 0.5,
+      duration = 0.3,
       once = true,
       direction = 'up',
       distance = 30,

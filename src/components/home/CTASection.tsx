@@ -1,6 +1,5 @@
 import { ArrowRight, Mail } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import { GlassCard } from '../../components/ui/GlassCard'
 import { Button } from '../../components/ui/Button'
 import { ScrollReveal } from '../../components/ui/ScrollReveal'
 
@@ -9,10 +8,9 @@ export function CTASection() {
     <section className="py-16 md:py-24 relative" aria-labelledby="cta-heading">
       <div className="container mx-auto px-4 md:px-6">
         <ScrollReveal>
-          <GlassCard className="max-w-3xl mx-auto text-center p-8 md:p-12 relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-accent)]/10 via-transparent to-[var(--color-accent)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true" />
-
+          <div className="max-w-3xl mx-auto text-center p-8 md:p-12">
             <div className="relative">
+
               <h2 id="cta-heading" className="font-display font-bold text-[var(--color-fg)] text-3xl md:text-4xl lg:text-5xl leading-tight mb-6">
                 Ready to Build Something <span className="text-[var(--color-accent)]">Amazing</span> Together?
               </h2>
@@ -23,13 +21,13 @@ export function CTASection() {
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button size="lg" asChild className="group">
+                <Button size="lg" asChild>
                   <Link to="/contact" className="flex items-center gap-2">
                     Start a Project
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="glass" asChild>
+                <Button size="lg" variant="ghost" asChild>
                   <a href="mailto:jaadhikabilan@gmail.com" className="flex items-center gap-2">
                     <Mail className="h-4 w-4" aria-hidden="true" />
                     Direct Email
@@ -52,7 +50,7 @@ export function CTASection() {
                 </span>
               </div>
             </div>
-          </GlassCard>
+          </div>
         </ScrollReveal>
       </div>
     </section>

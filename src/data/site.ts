@@ -33,10 +33,10 @@ export const siteConfig: SiteConfig = {
   ogImage: '/og-image.png',
   author: {
     name: 'Aadhi Kabilan J',
-    email: 'jaadhikabilan@gmail.com',
+    email: 'aadhikabilanj@gmail.com',
     phone: '+91 7604940996',
     github: 'https://github.com/AadhiKabilan',
-    linkedin: 'https://linkedin.com/in/aadhikabilan',
+    linkedin: 'https://linkedin.com/in/aadhi-kabilan-j-b840751bb',
     twitter: 'https://twitter.com/aadhikabilan',
     location: 'Puducherry, India',
   },
@@ -48,7 +48,7 @@ export const siteConfig: SiteConfig = {
   ],
   socialLinks: [
     { label: 'GitHub', href: 'https://github.com/AadhiKabilan', icon: 'github' },
-    { label: 'LinkedIn', href: 'https://linkedin.com/in/aadhikabilan', icon: 'linkedin' },
-    { label: 'Email', href: 'mailto:jaadhikabilan@gmail.com', icon: 'mail' },
+    { label: 'LinkedIn', href: 'https://linkedin.com/in/aadhi-kabilan-j-b840751bb', icon: 'linkedin' },
+    { label: 'Email', href: 'mailto:aadhikabilanj@gmail.com', icon: 'mail' },
   ],
 }

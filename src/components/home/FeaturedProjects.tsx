@@ -1,20 +1,14 @@
-
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../../components/ui/Button";
 import { ScrollReveal } from "../../components/ui/ScrollReveal";
 import { featuredProjects } from "../../data/projects";
-import { useRef, useState, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export function FeaturedProjects() {
   return (
-    <section id="projects" className="py-20 md:py-28 bg-[var(--color-bg-subtle)]">
+    <section id="projects" className="pt-4 md:pt-8 pb-16 md:pb-24 bg-[var(--color-bg-subtle)]">
       <div className="container mx-auto px-4 md:px-6">
-        <ScrollReveal className="text-center max-w-2xl mx-auto mb-16" delay={0}>
+        <ScrollReveal className="text-center max-w-2xl mx-auto mb-12" delay={0}>
           <h2 className="font-display font-bold text-[var(--color-fg)] text-3xl md:text-4xl lg:text-5xl mb-4">
             Featured <span className="text-[var(--color-accent)]">Projects</span>
           </h2>
@@ -23,14 +17,14 @@ export function FeaturedProjects() {
           </p>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredProjects.map((project, index) => (
             <ProjectCard key={project.slug} project={project} index={index} />
           ))}
         </div>
 
         <div className="text-center mt-12">
-          <ScrollReveal delay={500}>
+          <ScrollReveal delay={250}>
             <Button size="lg" variant="ghost" asChild>
               <Link to="/projects">
                 View All Projects
@@ -45,52 +39,26 @@ export function FeaturedProjects() {
 }
 
 function ProjectCard({ project, index }: { project: typeof featuredProjects[0]; index: number }) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      if (cardRef.current) {
-        gsap.from(cardRef.current, {
-          y: 50,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power3.out",
-          delay: index * 0.15,
-          scrollTrigger: {
-            trigger: cardRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        });
-      }
-    }, cardRef);
-    return () => ctx.revert();
-  }, [index]);
-
   return (
-    <ScrollReveal key={project.slug} delay={index * 100} direction="up">
+    <ScrollReveal key={project.slug} delay={index * 50} direction="up">
       <article
-        ref={cardRef}
-        className="group relative overflow-hidden rounded-2xl bg-[var(--glass-bg)] border border-[var(--glass-border)] shadow-[var(--glass-shadow)] backdrop-[var(--glass-backdrop)] transition-all duration-500 ease-out hover:shadow-[var(--glass-shadow),var(--shadow-3)] hover:-translate-y-1"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        className="group relative overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-elevated)] transition-all duration-200 ease-out hover:border-[var(--color-border-strong)] hover:shadow-md"
       >
-        <div className={`relative aspect-[4/3] overflow-hidden transition-transform duration-700 ease-out ${isHovered && "scale-[1.05]"}`}>
+        {/* Image */}
+        <div className="relative aspect-[4/3] overflow-hidden">
           <img
             src={project.thumbnail}
             alt={project.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 p-4">
-            <h3 className="font-display font-bold text-xl text-white mb-1">{project.title}</h3>
-            <p className="text-white/80 text-xs line-clamp-2">{project.shortDescription}</p>
-          </div>
+          {/* Optional: subtle overlay on hover */}
+          <div className="absolute inset-0 bg-[var(--color-bg)]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
 
+        {/* Content */}
         <div className="p-6 space-y-4">
+          {/* Tech tags */}
           <div className="flex flex-wrap gap-2">
             {project.techStack.slice(0, 5).map((tech) => (
               <span
@@ -107,7 +75,12 @@ function ProjectCard({ project, index }: { project: typeof featuredProjects[0]; 
             )}
           </div>
 
-          <div className="pt-4 border-t border-[var(--glass-border)] flex items-center justify-between">
+          {/* Title and description */}
+          <h3 className="font-display font-bold text-[var(--color-fg)] text-xl mb-1">{project.title}</h3>
+          <p className="text-[var(--color-fg-muted)] text-sm line-clamp-3">{project.shortDescription}</p>
+
+          {/* Footer: category and live demo link */}
+          <div className="pt-4 border-t border-[var(--color-border)] flex items-center justify-between">
             <span className="text-sm text-[var(--color-fg-muted)]">
               {project.category.charAt(0).toUpperCase() + project.category.slice(1).replace("-", " ")}
             </span>
@@ -124,8 +97,6 @@ function ProjectCard({ project, index }: { project: typeof featuredProjects[0]; 
             )}
           </div>
         </div>
-
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--glass-bg)]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl" />
       </article>
     </ScrollReveal>
   );
