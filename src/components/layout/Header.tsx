@@ -120,7 +120,7 @@ export function Header() {
           id="mobile-menu"
           className={cn(
             "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
-            isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+            isMobileMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
           )}
           role="navigation"
           aria-label="Mobile navigation"

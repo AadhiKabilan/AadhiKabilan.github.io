@@ -56,8 +56,8 @@ export function ThemeToggleSimple() {
         'pointer-events-none block h-5 w-5 rounded-full bg-white shadow-lg ring-0 transition-transform duration-300 ease-spring',
         'translate-x-0 data-[state=checked]:translate-x-5'
       )}>
-        <Sun className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-3 w-3 text-[var(--color-accent)] opacity-0 data-[state=checked]:opacity-100 transition-opacity" aria-hidden="true" />
-        <Moon className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-3 w-3 text-[var(--color-fg-muted)] opacity-100 data-[state=checked]:opacity-0 transition-opacity" aria-hidden="true" />
+        <Sun className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-3 w-3 text-[var(--color-accent)] opacity-0 data-[state=checked]:opacity-100 transition-opacity duration-300" aria-hidden="true" />
+        <Moon className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-3 w-3 text-[var(--color-fg-muted)] opacity-100 data-[state=checked]:opacity-0 transition-opacity duration-300" aria-hidden="true" />
       </span>
     </Switch>
   )

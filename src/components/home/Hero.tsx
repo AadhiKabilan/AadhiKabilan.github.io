@@ -1,4 +1,4 @@
-import { ArrowRight, Mail, GraduationCap, BarChart3, Microscope, Settings, Brain, Laptop, School } from "lucide-react";
+import { ArrowRight, Mail, GraduationCap, BarChart3, Microscope, Settings, Brain, School } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../../components/ui/Button";
 import { ScrollReveal } from "../../components/ui/ScrollReveal";
