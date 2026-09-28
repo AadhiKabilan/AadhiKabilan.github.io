@@ -6,7 +6,7 @@ import { ScrollReveal } from "../../components/ui/ScrollReveal";
 export function Hero() {
   return (
     <section className="relative mt-12 md:mt-16 bg-gradient-to-b from-[var(--color-accent)]/40 to-[var(--color-accent)]/60" aria-label="Home">
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container px-4 mx-auto md:px-6">
         {/* Desktop: Two-column layout | Mobile: Stacked */}
         <div className="grid gap-16 md:grid-cols-2">
           {/* Left Column: Main Content */}
@@ -35,16 +35,16 @@ export function Hero() {
 
             {/* Action Buttons */}
             <ScrollReveal delay={300}>
-              <div className="flex flex-wrap gap-4 md:gap-6 mb-6 md:mb-8">
+              <div className="flex flex-wrap gap-4 mb-6 md:gap-6 md:mb-8">
                 <Button size="lg" asChild>
                   <Link to="/projects" className="flex items-center gap-3">
                     View Projects
-                    <ArrowRight className="h-5 w-5" />
+                    <ArrowRight className="w-5 h-5" />
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <a href="mailto:aadhikabilanj@gmail.com" className="flex items-center gap-3">
-                    <Mail className="h-5 w-5" aria-hidden="true" />
+                    <Mail className="w-5 h-5" aria-hidden="true" />
                     Direct Email
                   </a>
                 </Button>
@@ -81,10 +81,10 @@ export function Hero() {
                     <Brain className="h-6 w-6 text-[var(--color-accent)]" />
                     <p className="text-[var(--color-fg)] text-lg">AI / ML</p>
                   </div>
-                  <div className="flex items-center gap-5">
+                  {/* <div className="flex items-center gap-5">
                     <Laptop className="h-6 w-6 text-[var(--color-accent)]" />
                     <p className="text-[var(--color-fg)] text-lg">Full-stack Development</p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </ScrollReveal>
